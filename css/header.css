@@ -1,0 +1,156 @@
+.header {
+    width: 100%;
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    padding: 20px 100px;
+  
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .logo {
+    max-width: 175px;
+  
+    position:relative;
+  }
+  
+  .toggleMenu {
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  .navbar ul {
+    display: flex;
+    position: relative;
+  }
+  
+  .navbar li {
+    list-style: none;
+  }
+  
+  .navbar a {
+    display: inline-block;
+  
+    font-weight: 400;
+  }
+  
+  .navbar li:not(:first-of-type) a {
+    margin-left: 40px;
+  }
+  
+  .navbar #marker {
+    width: 0;
+    height: 2px;
+  
+    position: absolute;
+    bottom: -8px;
+  
+    background-color: var(--font-primary-color);
+    border-radius: 4px;
+  
+    transition: 0.5s;
+  }
+  
+  @media (max-width: 991px) {
+    .header {
+      padding: 20px 40px;
+    }
+  
+    .logo {
+      max-width: 120px;
+    }
+  
+    .navbar {
+      width: 100%;
+      height: 100%;
+  
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    
+      position: fixed;
+      top: 0;
+      right: -100%;
+      z-index: 1;
+    
+      background-color: var(--bg-menu-color);
+  
+      opacity: 0;
+  
+      transition: all 0.7s ease;
+    }
+  
+    .navbar ul {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    
+      transition: 0.2s;
+    }
+  
+    .navbar a {
+      color: var(--font-secondary-color);
+      font-size: 2em;
+    
+      margin: 10px 0;
+    }
+  
+    .navbar a:hover {
+      color: var(--font-tertiary-color);
+      opacity: 1;
+    }
+    .navbar li:not(:first-of-type) a {
+      margin-left: 0px;
+    }
+  
+    .toggleMenu {
+      visibility: visible;
+      opacity: 1;
+  
+      width: 40px;
+      height: 40px;
+  
+      z-index: 2;
+  
+      background: url(../assets/menu.svg);
+      background-position: center;
+      background-size: 30px;
+      background-repeat: no-repeat;
+  
+      cursor: pointer;
+    }
+  
+    .toggleMenu:focus,
+    .toggleMenu:hover {
+      opacity: .5;
+    }
+  
+    .toggleMenu.active {
+      background: url(../assets/x.svg);
+      background-position: center;
+      background-size: 30px;
+      background-repeat: no-repeat;
+  
+      cursor: pointer;
+  
+      filter: invert(1);
+    }
+  
+    .rotate {
+      transform: rotateX(360deg);
+      transition: transform 0.5s linear;
+    }
+  
+    .navbar.active {
+      top: 0;
+      right: 0;
+  
+      opacity: 1;
+  
+      transition: all 0.7s ease;
+    }
+  }
